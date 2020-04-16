@@ -7,7 +7,7 @@ namespace CopaFilmesAPITests
     public class HttpFilmesRepositoryTests
     {
         [Fact]
-        public void GetAll_When_ServerReponds200()
+        public void GetAll_Quando_ServidorResponde200()
         {
             //arrange
             var repo = new HttpFilmesRepository();

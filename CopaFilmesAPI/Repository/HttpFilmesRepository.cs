@@ -8,7 +8,7 @@ namespace CopaFilmesAPI.Repository
 {
     public class HttpFilmesRepository : IFilmesRepository
     {
-        string DATA_URL = "http://copafilmes.azurewebsites.net/api/filmes";
+        const string DATA_URL = "http://copafilmes.azurewebsites.net/api/filmes";
 
         public List<Filme> GetAll()
         {

@@ -10,19 +10,21 @@
   <div class="row justify-content-between no-gutters">
     <div class="col-3">
       <h5>Selecionados</h5>
-      <h5><span id="contFilmes">0</span> de 8 filmes</h5>
+      <h5>{{selected.length}} de 8 filmes</h5>
     </div>
     <div class="col-3">
-      <div class="btn-gerar-campeonato">
+      <button (click)="processarCampeonato()" class="btn-gerar-campeonato" [disabled]="!allMoviesSelected">
         GERAR MEU CAMPEONATO
-      </div>
+      </button>
     </div>
   </div>
   <div id="movie-list" class="row no-gutters">
     <div class="col-3" *ngFor="let filme of filmes">
-      <div id="{{filme.id}}" class="box-movie">
+      <div class="box-movie">
         <div class="row">
-          <div class="col-2 checkbox"></div>
+          <div class="col-2 checkbox">
+            <input type="checkbox" [disabled]="allMoviesSelected && !filme.selected" [checked]="filme.selected" (change)="addToSelectedMovieToList(filme, $event)">
+          </div>
           <div class="col-10">
             <strong>{{filme.titulo}}</strong>
             <p>{{filme.ano}}</p>

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { ListaFilmesComponent } from './lista-filmes/lista-filmes.component';
 import { ResultadoComponent } from './resultado/resultado.component';
 import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CopaService } from './_services/copa.service';
 
 @NgModule({
    declarations: [
@@ -16,9 +18,12 @@ import { HeaderComponent } from './header/header.component';
    ],
    imports: [
       BrowserModule,
-      HttpClientModule
+      HttpClientModule,
+      AppRoutingModule
    ],
-   providers: [],
+   providers: [
+      CopaService
+   ],
    bootstrap: [
       AppComponent
    ]

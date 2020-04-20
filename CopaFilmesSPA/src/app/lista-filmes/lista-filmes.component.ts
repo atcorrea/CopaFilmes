@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Filme } from '../Filme';
+import { Router } from '@angular/router';
+import { CopaService } from '../_services/copa.service';
 
 @Component({
   selector: 'app-lista-filmes',
@@ -17,32 +19,23 @@ export class ListaFilmesComponent implements OnInit {
   selected: Filme[] = [];
   allMoviesSelected: boolean;
 
-  constructor(private client: HttpClient) { }
+  constructor(private client: HttpClient,
+              private router: Router,
+              private copa: CopaService) { }
 
   ngOnInit() {
-    this.getFilmes();
+    this.filmes = this.copa.getFilmes();
   }
 
-  getFilmes() {
-    this.client.get(this.host + '/filmes').subscribe(resp => {
-        (resp as Filme[]).map(filme => {
-          this.filmes.push(new Filme(filme.id, filme.titulo, filme.ano, filme.nota))
-        });
-    }, error => {
-      console.log(error);
-    })
-  }
-
-  addToSelectedMovieToList(filme: Filme, event: any) {
+  addToSelectedMovieToList(filme: Filme, event: any): void {
     let item = this.filmes.find(x => x.id === filme.id);
     item.selected = event.target.checked;
     this.selected = this.filmes.filter(x => x.selected);
     this.allMoviesSelected = this.selected.length == 8;
   }
 
-  processarCampeonato(){
-    this.client.post(this.host + '/disputar', this.selected).subscribe(resp => {
-      console.log(resp);
-    })
+  async gerarMeuCampeonato() {
+    await this.copa.processarCampeonato(this.selected);
+    this.router.navigate(['/resultado']);
   }
 }

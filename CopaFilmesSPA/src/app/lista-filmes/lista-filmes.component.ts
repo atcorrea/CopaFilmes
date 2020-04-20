@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Filme } from './Filme';
+import { Filme } from '../Filme';
 
 @Component({
   selector: 'app-lista-filmes',
@@ -8,7 +8,9 @@ import { Filme } from './Filme';
   styleUrls: ['./lista-filmes.component.css']
 })
 export class ListaFilmesComponent implements OnInit {
-
+  
+  tituloPagina: string = "Fase de Seleção";
+  mensagemPagina: string = "Selecione 8 filmes que você deseja que entrem na competição e depois pressione o botão Gerar Meu Campeonato para prosseguir.";
   host: string = 'http://localhost:5000/api/copa';
 
   filmes: Filme[] = [];

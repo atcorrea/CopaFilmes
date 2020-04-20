@@ -1,0 +1,20 @@
+.caixa-filme div{
+ margin: 10px 0;
+ padding-top: 40px;
+ padding-bottom: 40px;
+}
+
+.caixa-filme div:first-child{
+    text-align: center;
+    background-color: gray;
+    font-size: 48px;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 25px;
+    letter-spacing: -5px;
+}
+
+.caixa-filme div:last-child{
+    color: #333;
+    background-color: white;    
+    font-size: 20px;
+}

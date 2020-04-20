@@ -4,11 +4,15 @@ import {HttpClientModule} from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { ListaFilmesComponent } from './lista-filmes/lista-filmes.component';
+import { ResultadoComponent } from './resultado/resultado.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
    declarations: [
       AppComponent,
-      ListaFilmesComponent
+      ListaFilmesComponent,
+      ResultadoComponent,
+      HeaderComponent
    ],
    imports: [
       BrowserModule,

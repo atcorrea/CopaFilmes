@@ -1,0 +1,10 @@
+.header{
+    margin: 50px 0;
+    padding: 50px 260px;
+    background-color: gray;
+    color: white;
+}
+
+#header p:first-child{
+    color: lightgray;
+}
